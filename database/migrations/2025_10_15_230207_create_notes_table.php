@@ -13,10 +13,6 @@ return new class extends Migration
     {
         Schema::create('notes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('category_id')->constrained()->onDelete('set null');
-            $table->string('title');
-            $table->text('content');
             $table->timestamps();
         });
     }
