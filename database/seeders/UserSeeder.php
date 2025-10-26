@@ -15,7 +15,6 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         $faker = Factory::create();
-
         for ($i = 0; $i < 10; $i++) {
             $user = new User;
             $user->name = $faker->lastName;
