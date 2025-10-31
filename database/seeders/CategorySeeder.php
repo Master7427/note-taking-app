@@ -5,9 +5,9 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Factory;
-use App\Models\Categorie;
+use App\Models\Category;
 
-class CategorieSeeder extends Seeder
+class CategorySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -18,7 +18,7 @@ class CategorieSeeder extends Seeder
 
         // Create 5 categories
         for ($i = 0; $i < 5; $i++) {
-            Categorie::create([
+            Category::create([
                 'name' => $faker->word,
             ]);
         }

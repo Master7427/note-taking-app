@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Factory;
 use App\Models\Note;
-use App\Models\Categorie;
+use App\Models\Category;
 use App\Models\User;
 
 class NoteSeeder extends Seeder
@@ -17,7 +17,7 @@ class NoteSeeder extends Seeder
     public function run(): void
     {
         $faker = Factory::create();
-        $categories = Categorie::all()->pluck('id')->toArray();
+        $categories = Category::all()->pluck('id')->toArray();
         $users = User::all()->pluck('id')->toArray();
 
         // Create 20 notes
