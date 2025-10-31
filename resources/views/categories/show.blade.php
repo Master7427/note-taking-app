@@ -4,8 +4,7 @@
 @section('content')
 <div class="container">
     <h1>Catégorie : {{ $category->name }}</h1>
-    <p>{{ $category->description }}</p>
-
+   
     <h2>Notes associées :</h2>
     @forelse ($notes as $note)
         <div class="card mb-3">

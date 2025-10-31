@@ -11,5 +11,16 @@ class Category extends Model
     {
         return $this->hasMany(Note::class);
     }
-    
+    public function create()
+{
+    $categories = Category::all();
+    return view('notes.create', compact('categories'));
+}
+public function edit($id)
+{
+    $note = Note::findOrFail($id);
+    $categories = Category::all();
+    return view('notes.edit', compact('note', 'categories'));
+
+}
 }

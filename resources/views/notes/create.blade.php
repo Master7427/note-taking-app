@@ -15,27 +15,43 @@
                 </div>
             @endif
 
+            @if ($message = Session::get('success'))
+                <div class="alert alert-success">
+                    <p>{{ $message }}</p>
+                </div>
+            @endif
+
             <div class="card-body p-4">
                 <form action="{{ route('notes.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <input type="hidden" name="user_id" value="{{ 1 }}" />
 
+                    {{-- Titre --}}
                     <div class="form-group mb-3">
                         <label for="title"><strong>Titre:</strong></label>
-                        <input type="text" class="form-control" id="title" name="title" placeholder="Entrez un titre">
+                        <input type="text" class="form-control" id="title" name="title" placeholder="Entrez un titre" value="{{ old('title') }}">
                     </div>
 
+                    {{-- Contenu --}}
                     <div class="form-group mb-3">
                         <label for="content"><strong>Ajouter le contenu:</strong></label>
-                        <textarea name="content" id="content" cols="30" rows="10" class="form-control"></textarea>
+                        <textarea name="content" id="content" cols="30" rows="10" class="form-control" placeholder="Écris ta note ici...">{{ old('content') }}</textarea>
                     </div>
 
+                    {{-- Image --}}
                     <div class="form-group mb-3">
-                        <label><strong>Image</strong></label>
-                        <input type="file" name="photo" class="form-control">
+                        <label for="photo"><strong>Image:</strong></label>
+                        <input type="file" name="photo" id="photo" class="form-control">
                     </div>
 
+                    {{-- Catégorie en texte --}}
+                    <div class="form-group mb-3">
+                        <label for="category_name"><strong>Catégorie:</strong></label>
+                        <input type="text" name="category_name" id="category_name" class="form-control" placeholder="Ex: Travail, Personnel..." value="{{ old('category_name') }}">
+                    </div>
+
+                    {{-- Boutons --}}
                     <button type="submit" class="btn btn-primary">Publier</button>
                     <a href="{{ url('/') }}" class="btn btn-info">Retour à l'accueil</a>
                 </form>

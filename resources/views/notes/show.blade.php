@@ -22,7 +22,6 @@
                 <h5>Catégorie :</h5>
                 @if ($note->category)
                     <p><strong>Nom :</strong> {{ $note->category->name }}</p>
-                    <p><strong>Description :</strong> {{ $note->category->description ?? 'Aucune description' }}</p>
                     <a href="{{ url('categories/' . $note->category->id) }}" class="btn btn-outline-secondary btn-sm">
                         Voir toutes les notes de la catégorie "{{ $note->category->name }}"
                     </a>
